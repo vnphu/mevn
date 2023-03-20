@@ -11,6 +11,7 @@ import api from './api'
 db.init().then(() => {
 	const app = express()
 	app.use(bodyParser.json())
+	app.use(bodyParser.urlencoded({ extended: false }))
 	app.use(cors())
 	app.use('/', api)
 	app.get('/', (req, res) => {
