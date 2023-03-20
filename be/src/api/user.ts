@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { Request, Response } from 'express'
-import User, { IUser } from '../db/models/user'
+import User, { IPublicUserInfo, IUser } from '../db/models/user'
 import { AuthRequest, AuthUser } from '../constants/types'
 import UserModel from '../db/models/user'
 import { apiError, parseAuthorization, randomNumberInRange } from '../utils/common-util'
@@ -46,7 +46,7 @@ export default {
 
 	userInfo: async (req: AuthRequest, res: Response): Promise<any> => {
 		try {
-			const authUser = req.user as IUser
+			const authUser = req.user as IPublicUserInfo
 			return res.status(200).send({ data: authUser })
 		} catch (e) {
 			apiError(e, res)
