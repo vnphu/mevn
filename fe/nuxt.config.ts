@@ -2,6 +2,10 @@
 import ruleUnoCss from "./utils/ruleUnoCss";
 export default defineNuxtConfig({
   modules: ["@unocss/nuxt"],
+  buildModules: ["@nuxtjs/axios", "@nuxtjs/moment"],
+  axios: {
+    baseURL: "/",
+  },
   unocss: {
     // presets
     uno: true, // enabled `@unocss/preset-uno`
