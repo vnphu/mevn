@@ -9,6 +9,10 @@ const PostSchema = new Schema({
 		type: String,
 		required: true,
 	},
+	description: {
+		type: String,
+		required: false,
+	},
 	createdAt: Date,
 	createBy: {
 		type: Types.ObjectId,
@@ -21,6 +25,7 @@ export interface IPost {
 	_id: Types.ObjectId
 	title: string
 	content: string
+	description: string
 	createdAt: Date
 	createBy: Types.ObjectId
 }

@@ -11,8 +11,9 @@ export default {
 			await PostModel.create({
 				title: req.body.title,
 				content: req.body.content,
+				description: req.body.description,
 				createdAt: new Date(),
-				createBy: user._id,
+				createBy: new Types.ObjectId(user._id),
 			})
 			return res.status(200).send({ data: { message: 'Success' } })
 		} catch (e) {

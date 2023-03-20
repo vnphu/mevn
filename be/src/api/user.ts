@@ -25,7 +25,6 @@ export default {
 	},
 	signUp: async (req: any, res: Response): Promise<any> => {
 		try {
-			console.log(req.body, 'body')
 			const { username, email, password } = req.body
 			const hashPassword = await bcrypt.hash(password, 10)
 			await UserModel.create({
